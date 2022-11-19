@@ -20,7 +20,7 @@ const getStepsArray = (steps) => {
         const stepPoint = []
         stepPoint.push([steps[i].start_location.lat, steps[i].start_location.lng])
         stepPoint.push([steps[i].end_location.lat, steps[i].end_location.lng])
-        stepPoint.push(steps[i].distance.text)
+        stepPoint.push(Number.parseFloat(steps[i].distance.text))
         stepPoint.push(steps[i].duration.text)
         stepPoint.push(steps[i].polyline.points)
         stepsArray.push(stepPoint)
@@ -34,7 +34,7 @@ const getPointsFromPolyline = (polyline) => {
 
 const deg2rad = (deg) => {return deg * (Math.PI/180)};
 
-// given two points, return the distance between them in km (MOE = 0.5%)
+// given two points, return the distance between them in km (MOE approx = 0.5%)
 const getDistanceFromTwoPoints = (point1, point2) => {
     const R = 6371; // Radius of the earth in km
     const lat1 = point1[0];

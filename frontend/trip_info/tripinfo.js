@@ -12,15 +12,22 @@ tripInfo.addEventListener('submit', () => {
 
   inputs.forEach(input => {
 
-    const inputObject = {}
+    dataArray.push(input.id)
 
-    inputObject.name = input.id
-
-    inputObject.value = input.value
-
-    dataArray.push(inputObject)
+    dataArray.push(input.value)
     
   });
 
   console.log(dataArray)
+
+  const KVPairsArray = []
+
+  dataArray.forEach(function(value, index, key) {
+    if(index % 2) KVPairsArray.push({ [key[index - 1]]: value });
+  })
+
+  console.log(KVPairsArray)
 })
+
+
+

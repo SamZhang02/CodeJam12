@@ -52,5 +52,3 @@ const getDistanceFromTwoPoints = (point1, point2) => {
     const d = R * c; // Distance in km
     return d;
     }
-
-console.log(getDistanceFromTwoPoints([45.21567,-74.33538], [45.21587,-74.33503]))

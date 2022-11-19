@@ -25,7 +25,7 @@ input {
 }
 
 input::-webkit-calendar-picker-indicator {
-  color: rgb(255, 166, 0);
+  opacity: 0;
 }
 
 input:hover {

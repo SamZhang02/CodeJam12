@@ -31,3 +31,7 @@ const getAllRestStops = async (intervalPointsArray) => {
     }
     return restStops
 }
+
+export{
+    getAllRestStops,
+}

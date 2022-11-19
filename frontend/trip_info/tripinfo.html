@@ -2,8 +2,24 @@
 <head>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="tripinfo.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
 </head>
 <body class="h-full bg-orange-100">
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <div class="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 " >
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="mt-5 md:col-span-3 md:mt-0">
@@ -78,9 +94,35 @@
             </div>
             </div>
 
+            <div class="mt-10 col-span-6 sm:col-span-5">
+                <label class="block text-lg font-bold text-gray-700">Preferred Arrival Day & Time</label>
+            </div>
+
+            <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
+                <input type="text"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Select a date" data-mdb-toggle="datepicker"/>
+                <label for="floatingInput" class="text-gray-700">Select a date</label>
+                </div>
+
+            <div class="timepicker relative form-floating mb-3 xl:w-96 col-span-6 sm:col-span-3" data-mdb-with-icon="false" id="input-toggle-timepicker ">
+                <input type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Select a date" data-mdb-toggle="input-toggle-timepicker" />
+                <label for="floatingInput" class="text-gray-700">Select a time</label>
+
+                
+            </div>
+
+
+
+
+            
             <div class="bg-white-50 px-4 py-3 text-right sm:px-6">
               <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-orange-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save</button>
             </div>
+
+            
           </div>
         </form>
       </div>

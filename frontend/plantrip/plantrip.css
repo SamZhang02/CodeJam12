@@ -1,0 +1,28 @@
+#title-container {
+  margin-bottom: 100px;
+}
+
+#title {
+  margin-top: 20px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+table, th, td{
+  font-size: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+td, th {
+  width: 50%;
+  padding: 10px;
+}

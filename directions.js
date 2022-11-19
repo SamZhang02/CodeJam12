@@ -100,21 +100,36 @@ const getIntervalPoints = (stepsArray, interval) => {
     return intervalPoints
 }
 
-const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
+const getStopInvertal = (hours_slept_last12h) => {
     //Will need to merge and the date form DatePicker to minutes and make small modifications to the formula below
-    let IntervalOfRests = totalTripHours*(1-(totalTripHours / hours_slept_last12h));
-    
-    if (IntervalOfRests<=0){
-        let IntervalOfRests2 = Math.sqrt(totalTripHours*(1-(totalTripHours / (hours_slept_last12h**2))));
-
-        console.log("Warning! Lack of Sleep, please take a break " + parseFloat(Math.sqrt(IntervalOfRests2)) + " hours");
-
+    if (hours_slept_last12h >=0 && hours_slept_last12h < 3) {
+        return 1.5
     }
-
-    else{
-        console.log("You should take a break at every " + IntervalOfRests + " hours");
+    else if (hours_slept_last12h >=3 && hours_slept_last12h < 6) {
+        return 2 
+    }
+    else if (hours_slept_last12h >=6 && hours_slept_last12h < 9) {
+        return 2.5 
+    }
+    else if (hours_slept_last12h >=9 && hours_slept_last12h <= 12) {
+        return 3 
     }
     return;
+}
+// Given an end time, a trip's duration without break and the interval where the user should stop, return the total time of the trip given that each stop lasts 30 minutes
+const findStartTime = (endTime, tripDuration, stopIntervalTime) => {
+    const numOfStops = Math.floor(tripDuration / stopIntervalTime)
+    const totalTime = numOfStops * 0.5 + tripDuration
+    return totalTime
+}
+
+// Given a total trip time and the interval where the user should stop, return the hours of the trip where the user should stop.
+const findStops = (tripTime, stopIntervalTime) => {
+    let stops = []
+    for (let i = 0; i < tripTime; i += stopIntervalTime) {
+       stops.push(i) 
+    }
+    return stops
 }
 
 export{
@@ -124,4 +139,4 @@ export{
 // const arr = getStepsArray(road)
 // console.log(getIntervalPoints(arr, 50))
 // console.log(getPointsFromPolyline('uoj|GxwcrL@H@F?@@HF^BTTdBD`@@DF\\F`@FTHZHZFJDLLVJPNT@BLPJPJLZ^BBVZ@@X\\@@RTd@h@b@d@RR@@VTTNPJBBXJVJ\\HZD^@^?^AZG^IXKTK\\SXWXWFGNQT]Tc@P_@?APc@Pm@Li@Hk@D]B]Fy@D{@Bw@Bg@?Q@_@?C?Y@}@?K?C?k@?CAu@?C?AAm@?UA]AYAYA]Ci@Cc@Ee@Gs@AOCSAIAOIs@AMGe@SqAOaA?CG_@CMMu@Ga@CICSGa@ACCQIi@I]Ie@QaAKi@?A?AYmBCQMeAQsBMcAK}@YyAm@oBk@kB?Ac@{AEQ]wAUaAKYO_@a@eA[y@EIYo@o@aBKWO]GQ]_Ag@{AWy@IS_@qAY_Aa@yAMg@CKMi@Mg@Om@Os@c@oBWiA[wAKg@g@{BU_AMc@IYQo@So@m@cBw@kBYm@Yo@KUc@s@S[SYUYQUQSOQc@a@c@a@SOGE[SuAu@c@W]SWSUQQSSSOQQU]c@QYU_@OYUi@[u@Qe@Oi@]wAU{@ESW_AUs@Qc@Sa@O[OYS[CGOSk@u@o@q@m@s@m@q@Y[gAmAQQs@y@m@k@]]MMa@_@m@g@{AoAu@s@GG[[CCs@w@[_@W[Y_@GI[c@i@y@c@q@_@o@Wi@OWMWm@qA]y@ISg@mAy@mBUg@a@aAe@aAWm@_@u@]o@GIUc@AA]m@s@gAkAaBCCeBmCWa@U]CEYc@QWaAkBMWUg@KUSi@Se@]_A]eA]gAKc@CGGWGUEQOm@Kg@Ke@Ow@Mw@M{@EYEa@MaAIm@Eo@OkAOaBCOAQo@_GKmAO_AAEO{@Ie@EUGYKc@CKq@eCCKACQi@[{@M[Wk@AAQc@[m@c@s@YY]Yk@_@c@S]MSEm@IY?K@S@c@Dg@JcAd@OFw@Ze@Ro@\\aBp@y@Nk@DM@eADcACCAQCQEA?[K]O_@Sq@k@m@q@o@oA[k@iAeBi@o@c@c@GGw@u@wA_AsAs@[Os@UeAUQEy@OgASuASy@G}AQKQ]k@m@OGAUUq@k@KMYc@CE_@}@EO_@wAUq@AGS]W[ECYYc@YOK][IGa@m@IMa@s@IKOUQSQSSQIGKIKIIGq@a@g@YQIUI_@KAAm@Q}A[o@K_@Ie@O[K]Oa@USOQMSSAAIKIGOSMQKOU]Q]OYIUACM]CIK]GOQk@Qm@IW[aAACOg@GQGQMYO_@IO_@u@U]EEGKKMOSWWa@_@_AcAQSQSQWU_@?AS[Sc@KWO_@EKK]GUACAA?AA?KIQ_AOo@S}@Sw@AGSo@Qi@M]M[Uc@We@Q[IOOWMWM]Oa@Uu@Qm@KYK[IQ]w@Ue@Qe@Se@M[KUOSOQMOGGGG]_@SSQWOUS]Wc@KUa@}@i@qAi@}AQe@Ww@m@aBc@oAI]ESCWCQAY?WASCo@Eo@?CAQCYAUEWEWGYGUKWMYQWQWMMY]UYY_@e@o@y@mAGOACMSwDoH_AkBEGc@}@MYM[K[IUGWGWEWEWEWAMCQCg@Ce@Co@GgAC]E_@CYCMCMEYI]I[K]KYM[O]Q_@Sc@]y@Ue@_@u@]k@o@}@o@_Aa@k@_@i@e@m@e@k@g@k@GI[]AAYWOMOMSMOKQKMKc@Ym@[kBeAw@a@}@e@YMi@We@S[Oi@UaA_@a@OUGc@Oe@Mk@K_@GC?OCOAA?QAQAA?a@A_C?[?S?OC_@Eo@Ie@AG?G?C?A?K?O?k@@M?q@?I?EAEACACECACICGCMAUI}@?CI{@COEa@EYAOEKCKEEEEECGAGCWAqAKE?u@GSAIAG?A?K@]F_AN'))
-
+console.log(findStops(8,2))

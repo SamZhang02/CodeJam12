@@ -1,0 +1,1 @@
+const tripInfo = document.getElementById("trip-info").submit()

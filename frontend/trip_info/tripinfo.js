@@ -1,6 +1,6 @@
 const tripInfo = document.getElementById('trip-info')
 
-console.log(tripInfo)
+//console.log(tripInfo)
 
 const inputs = document.querySelectorAll('.required-input')
 
@@ -18,15 +18,19 @@ tripInfo.addEventListener('submit', () => {
     
   });
 
-  console.log(dataArray)
+  //console.log(dataArray)
 
-  const KVPairsArray = []
+  const dataObject = {}
 
   dataArray.forEach(function(value, index, key) {
-    if(index % 2) KVPairsArray.push({ [key[index - 1]]: value });
+    if(index % 2) {
+      dataObject[key[index - 1]] = value;
+    }
   })
 
-  console.log( JSON.stringify(KVPairsArray, null, 2))
+  //console.log(dataObject)
+
+  console.log(JSON.stringify(dataObject, null, 2))
 })
 
 

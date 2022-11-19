@@ -101,12 +101,21 @@ const getIntervalPoints = (stepsArray, interval) => {
     return intervalPoints
 }
 
+
+const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
+    //Will need to merge and the date form DatePicker to minutes and make small modifications to the formula below
+    let IntervalOfRests = totalTripHours*(1-(totalTripHours / hours_slept_last12h));
+    
+    if (IntervalOfRests<=0){
+        let IntervalOfRests2 = Math.sqrt(Math.abs(totalTripHours*(1-(totalTripHours / (hours_slept_last12h**2)))));
+
 const getAllIntervalPoints = async (origin, destination) => {
     const steps = await getSteps('Montreal', 'Toronto')
     const stepsArray = getStepsArray(steps)
     const intervalPoints = getIntervalPoints(stepsArray, 50)
     return intervalPoints
 }
+
 
 
 const getStopInvertal = (hours_slept_last12h) => {
@@ -125,6 +134,13 @@ const getStopInvertal = (hours_slept_last12h) => {
     }
     return;
 }
+
+getNbOfStops(13,10);
+getNbOfStops(4,10);
+getNbOfStops(2,10);
+export{
+    getDirections,
+
 // Given an end time, a trip's duration without break and the interval where the user should stop, return the total time of the trip given that each stop lasts 30 minutes
 const findStartTime = (endTime, tripDuration, stopIntervalTime) => {
     const numOfStops = Math.floor(tripDuration / stopIntervalTime)
@@ -139,6 +155,7 @@ const findStops = (tripTime, stopIntervalTime) => {
        stops.push(i) 
     }
     return stops
+
 }
 
 const findAllStops = (startTime, endTime, stopIntervalTime) => {

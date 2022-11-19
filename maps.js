@@ -93,7 +93,3 @@ const getIntervalPoints = (stepsArray, interval) => {
     intervalPoints.push(allPoints[allPoints.length - 1])
     return intervalPoints
 }
-
-const json = await getSteps('Toronto', 'Montreal')
-const arr = getStepsArray(json)
-console.log(getIntervalPoints(arr, 50))

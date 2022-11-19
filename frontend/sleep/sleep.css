@@ -2,35 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-#input-container {
+#container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
-label[for=hours-slept] {
-  margin-bottom: 10px;
+#input-container {
+  background-color: white;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  border-radius: 20px;
   text-align: center;
 }
 
 input {
-  color: black;
-  border-color:rgb(255, 166, 0);
-  width: 30%;
-  line-height: 40px;
+  text-align: center;
 }
 
 input::-webkit-calendar-picker-indicator {
-  color: rgb(255, 166, 0);
+  opacity: 0;
 }
 
 input:hover {
-  box-shadow: 0.1px 0.1px 1px rgb(238, 160, 92);
+  box-shadow: 1px 1px 1px rgb(238, 160, 92);
+  transition: 0.2s;
 }
 
 input[type=text]:focus {
   outline: none;
-  color: rgb(0, 0, 0);
   box-shadow: 0.1px 0.1px 1px inset;
 }
 

@@ -17,14 +17,14 @@
     }
   }
 </script>
-<scrip src="tripinfo.js"></script>
+<script src="tripinfo.js" defer></script>
 </head>
 <body class="h-full bg-orange-100">
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <div class="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 " >
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="mt-5 md:col-span-3 md:mt-0">
-        <form id= "trip-info" action="#" method="POST">
+        <form id= "trip-info">
           <div class="overflow-hidden shadow sm:rounded-md">
             <div class="bg-white px-4 py-5 sm:p-6">
               <div class="grid grid-cols-6 gap-6">
@@ -34,7 +34,7 @@
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="org-country" class="block text-sm font-medium text-gray-700">Country</label>
-                  <select id="org-country" name="org-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm">
+                  <select id="org-country" name="org-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm required-input">
                     <option>Canada</option>
                     <option>United States</option>
                     <option>Mexico</option>
@@ -43,22 +43,22 @@
   
                 <div class="col-span-6">
                   <label for="org-street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                  <input type="text" name="org-street-address" id="org-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                  <input type="text" name="org-street-address" id="org-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
                 </div>
   
                 <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label for="org-city" class="block text-sm font-medium text-gray-700">City</label>
-                  <input type="text" name="org-city" id="org-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                  <input type="text" name="org-city" id="org-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label for="org-region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                  <input type="text" name="org-region" id="org-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                  <input type="text" name="org-region" id="org-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label for="org-postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                  <input type="text" name="org-postal-code" id="org-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                  <input type="text" name="org-postal-code" id="org-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
                 </div>
 
               <div class="mt-10 col-span-6 sm:col-span-5">
@@ -67,7 +67,7 @@
 
             <div class="col-span-6 sm:col-span-3">
               <label for="dst-country" class="block text-sm font-medium text-gray-700">Country</label>
-              <select id="dst-country" name="dst-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm">
+              <select id="dst-country" name="dst-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm required-input">
                 <option>Canada</option>
                 <option>United States</option>
                 <option>Mexico</option>
@@ -76,22 +76,22 @@
 
             <div class="col-span-6">
               <label for="dst-street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-              <input type="text" name="dst-street-address" id="dst-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+              <input type="text" name="dst-street-address" id="dst-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
             </div>
 
             <div class="col-span-6 sm:col-span-6 lg:col-span-2">
               <label for="dst-city" class="block text-sm font-medium text-gray-700">City</label>
-              <input type="text" name="dst-city" id="dst-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+              <input type="text" name="dst-city" id="dst-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
             </div>
 
             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
               <label for="dst-region" class="block text-sm font-medium text-gray-700">State / Province</label>
-              <input type="text" name="dst-region" id="dst-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+              <input type="text" name="dst-region" id="dst-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
             </div>
 
             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
               <label for="dst-postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-              <input type="text" name="dst-postal-code" id="dst-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+              <input type="text" name="dst-postal-code" id="dst-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm required-input">
             </div>
             </div>
 
@@ -100,15 +100,15 @@
             </div>
 
             <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
-                <input type="text"
-                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                <input type="text" 
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none required-input"
                     placeholder="Select a date" data-mdb-toggle="datepicker"/>
                 <label for="floatingInput" class="text-gray-700">Select a date</label>
                 </div>
 
             <div class="timepicker relative form-floating mb-3 xl:w-96 col-span-6 sm:col-span-3" data-mdb-with-icon="false" id="input-toggle-timepicker ">
                 <input type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none required-input"
                 placeholder="Select a date" data-mdb-toggle="input-toggle-timepicker" />
                 <label for="floatingInput" class="text-gray-700">Select a time</label>
 

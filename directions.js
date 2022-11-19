@@ -115,7 +115,8 @@ const getAllIntervalPoints = async (origin, destination) => {
     const intervalPoints = getIntervalPoints(stepsArray, 50)
     return intervalPoints
 }
-
+    }
+}
 
 
 const getStopInvertal = (hours_slept_last12h) => {
@@ -140,7 +141,7 @@ getNbOfStops(4,10);
 getNbOfStops(2,10);
 export{
     getDirections,
-
+}
 // Given an end time, a trip's duration without break and the interval where the user should stop, return the total time of the trip given that each stop lasts 30 minutes
 const findStartTime = (endTime, tripDuration, stopIntervalTime) => {
     const numOfStops = Math.floor(tripDuration / stopIntervalTime)

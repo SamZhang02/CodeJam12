@@ -61,3 +61,39 @@ const getDistancesInPolyline = (polyline) => {
     }
     return distances
 }
+
+const getIntervalPoints = (stepsArray, interval) => {
+    let allPoints = []
+    let allDistances= []
+
+    for (let i = 0; i < stepsArray.length; i++) {
+        const distance = stepsArray[i][2]
+        if (distance > interval) {
+            const polyPoints = getPointsFromPolyline(stepsArray[i][4])
+            const polyDistances = getDistancesInPolyline(stepsArray[i][4]) 
+            allPoints = allPoints.concat(polyPoints)
+            allDistances = allDistances.concat(polyDistances)
+        }
+        else{
+            allPoints.push(stepsArray[i][0])
+            allDistances.push(stepsArray[i][2])
+        }
+    }
+
+    let intervalPoints = [];
+    intervalPoints.push(allPoints[1])
+    let totalDistance = 0;
+    for (let i = 0; i < allPoints.length; i++) {
+        totalDistance += allDistances[i]
+        if (totalDistance >= interval) {
+            intervalPoints.push(allPoints[i])
+            totalDistance = 0
+        }
+    }
+    intervalPoints.push(allPoints[allPoints.length - 1])
+    return intervalPoints
+}
+
+const json = await getSteps('Toronto', 'Montreal')
+const arr = getStepsArray(json)
+console.log(getIntervalPoints(arr, 50))

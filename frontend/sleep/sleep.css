@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label[for=hours-slept] {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+input {
+  color: black;
+  border-color:rgb(255, 166, 0);
+  width: 60%;
+}
+
+input::-webkit-calendar-picker-indicator {
+  color: rgb(255, 166, 0);
+}
+
+input:hover {
+  box-shadow: 0.1px 0.1px 1px rgb(238, 160, 92);
+}
+
+input[type=text]:focus {
+  outline: none;
+  color: rgb(0, 0, 0);
+  box-shadow: 0.1px 0.1px 1px inset;
+}
+
+#sleep-submit {
+  text-align: end;
+  margin-top: 10px;
+  background-color: orange;
+  border-color: orange;
+  padding: 3px;
+  line-height: 18px;
+}
+
+#sleep-submit:hover {
+  cursor: pointer;
+  background-color: rgb(236, 153, 0);
+  border-color: rgb(236, 153, 0);
+}
+
+#sleep-submit:focus {
+  outline: none;
+  transform: scale(0.9);
+}

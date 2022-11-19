@@ -6,9 +6,10 @@
   margin-top: 0;
 }
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+input[type=checkbox] {
+  accent-color: orange;
+}
+
+input[type=email]{
+  margin-bottom: 1px;
 }

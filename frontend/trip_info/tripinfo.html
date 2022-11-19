@@ -1,0 +1,91 @@
+<!DOCTYPE html lang="en" class="h-full bg-gray-50">
+<head>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="h-full">
+    <div class="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 " >
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <form action="#" method="POST">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white px-4 py-5 sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-5">
+                    <label class="block text-lg font-bold text-gray-700">Origin Address</label>
+                </div>
+  
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="org-country" class="block text-sm font-medium text-gray-700">Country</label>
+                  <select id="org-country" name="org-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm">
+                    <option>Canada</option>
+                    <option>United States</option>
+                    <option>Mexico</option>
+                  </select>
+                </div>
+  
+                <div class="col-span-6">
+                  <label for="org-street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+                  <input type="text" name="org-street-address" id="org-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                </div>
+  
+                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label for="org-city" class="block text-sm font-medium text-gray-700">City</label>
+                  <input type="text" name="org-city" id="org-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                </div>
+  
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="org-region" class="block text-sm font-medium text-gray-700">State / Province</label>
+                  <input type="text" name="org-region" id="org-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                </div>
+  
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="org-postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+                  <input type="text" name="org-postal-code" id="org-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+                </div>
+
+              <div class="mt-10 col-span-6 sm:col-span-5">
+                <label class="block text-lg font-bold text-gray-700">Destination Address</label>
+                </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label for="dst-country" class="block text-sm font-medium text-gray-700">Country</label>
+              <select id="dst-country" name="dst-country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm">
+                <option>Canada</option>
+                <option>United States</option>
+                <option>Mexico</option>
+              </select>
+            </div>
+
+            <div class="col-span-6">
+              <label for="dst-street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+              <input type="text" name="dst-street-address" id="dst-street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+            </div>
+
+            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+              <label for="dst-city" class="block text-sm font-medium text-gray-700">City</label>
+              <input type="text" name="dst-city" id="dst-city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="dst-region" class="block text-sm font-medium text-gray-700">State / Province</label>
+              <input type="text" name="dst-region" id="dst-region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="dst-postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+              <input type="text" name="dst-postal-code" id="dst-postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm">
+            </div>
+          </div>
+            </div>
+
+            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-orange-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</HTML>

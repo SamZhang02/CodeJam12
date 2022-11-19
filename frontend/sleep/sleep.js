@@ -5,7 +5,7 @@ const sleepInput = document.getElementById('hours-slept');
 sleepForm.addEventListener('submit', () => {
   event.preventDefault();
   const sleepData = {}
-  sleepData.value = sleepInput.value
+  sleepData.hours = sleepInput.value
 
   console.log(sleepData)
 })

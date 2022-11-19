@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./login/**/*.{html, js}"],
+  content: ["./frontend/**/*.{html, js}", './node_modules/tw-elements/dist/js/**/*.js'], 
   theme: {
     extend: {
       fontFamily: {
@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('tw-elements/dist/plugin')
   ],
 }
 ,}

@@ -52,3 +52,12 @@ const getDistanceFromTwoPoints = (point1, point2) => {
     const d = R * c; // Distance in km
     return d;
     }
+
+const getDistancesInPolyline = (polyline) => {
+    const points = getPointsFromPolyline(polyline)
+    const distances = []
+    for (let i = 0; i < points.length - 1; i++) {
+        distances.push(getDistanceFromTwoPoints(points[i], points[i+1]))
+    }
+    return distances
+}

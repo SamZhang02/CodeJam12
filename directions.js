@@ -105,7 +105,7 @@ const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
     let IntervalOfRests = totalTripHours*(1-(totalTripHours / hours_slept_last12h));
     
     if (IntervalOfRests<=0){
-        let IntervalOfRests2 = Math.sqrt(totalTripHours*(1-(totalTripHours / (hours_slept_last12h**2))));
+        let IntervalOfRests2 = Math.sqrt(Math.abs(totalTripHours*(1-(totalTripHours / (hours_slept_last12h**2)))));
 
         console.log("Warning! Lack of Sleep, please take a break " + parseFloat(Math.sqrt(IntervalOfRests2)) + " hours");
 
@@ -116,7 +116,9 @@ const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
     }
     return;
 }
-
+getNbOfStops(13,10);
+getNbOfStops(4,10);
+getNbOfStops(2,10);
 export{
     getDirections,
 }

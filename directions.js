@@ -93,3 +93,20 @@ const getIntervalPoints = (stepsArray, interval) => {
     intervalPoints.push(allPoints[allPoints.length - 1])
     return intervalPoints
 }
+
+const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
+    //Will need to merge and the date form DatePicker to minutes and make small modifications to the formula below
+    let IntervalOfRests = totalTripHours*(1-(totalTripHours / hours_slept_last12h));
+    
+    if (IntervalOfRests<=0){
+        let IntervalOfRests2 = Math.sqrt(totalTripHours*(1-(totalTripHours / (hours_slept_last12h**2))));
+
+        console.log("Warning! Lack of Sleep, please take a break " + parseFloat(Math.sqrt(IntervalOfRests2)) + " hours");
+
+    }
+
+    else{
+        console.log("You should take a break at every " + IntervalOfRests + " hours");
+    }
+    return;
+}

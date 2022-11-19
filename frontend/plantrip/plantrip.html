@@ -11,18 +11,33 @@
 </head>
 
 <body class="bg-orange-200">
-  <div id="title-container">
-    <h1 id="title">Your personalised trip</h1>
-    <h3 required class="text-3xl">Based on the information we received, we recommend you take this following route:</h3>
-  </div>
+  <div class="flex min-h-full w-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 " >
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:col-span-3 md:mt-0">
+        <div class="overflow-hidden shadow sm:rounded-md">
+          <div class="bg-white px-4 py-5 sm:p-6">
 
-  <table id="plan-container">
-    <tr>
-      <th>Schedule</th>
-      <th>Suggested Stop To Make</th>
-    </tr>
-    <tr></tr>
-  </table>
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-5">
+                <label class="block text-2xl font-bold text-gray-700">Your personalised trip</label>
+                <label class="block text-md font-bold text-gray-700">Based on the information we received, we recommend you take this following route:</label>
+            </div>
+            <div class="col-span-6 sm:col-span-6">
+              <table id="plan-container" class="table-auto border-collapse overflow-hidden shadow sm:rounded-md">
+                <tr>
+                  <th class="text-lg font-bold text-gray-700">Schedule</th>
+                  <th class="text-lg font-bold text-gray-700">Suggested Stop To Make</th>
+                </tr>
+                <tr>
+                  
+
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
   
 </body>
 </html>

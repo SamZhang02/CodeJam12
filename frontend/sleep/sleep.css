@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #input-container {
   display: flex;
   flex-direction: column;
@@ -17,7 +16,8 @@ label[for=hours-slept] {
 input {
   color: black;
   border-color:rgb(255, 166, 0);
-  width: 60%;
+  width: 30%;
+  line-height: 40px;
 }
 
 input::-webkit-calendar-picker-indicator {
@@ -35,12 +35,14 @@ input[type=text]:focus {
 }
 
 #sleep-submit {
-  text-align: end;
-  margin-top: 10px;
+  font-size: 2rem;
+  margin-top: 50px;
   background-color: orange;
   border-color: orange;
-  padding: 3px;
-  line-height: 18px;
+  padding: 10px;
+  line-height: 40px;
+  border-radius: 20px;
+  width: 30%;
 }
 
 #sleep-submit:hover {

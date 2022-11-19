@@ -26,7 +26,7 @@ tripInfo.addEventListener('submit', () => {
     if(index % 2) KVPairsArray.push({ [key[index - 1]]: value });
   })
 
-  console.log(KVPairsArray)
+  console.log( JSON.stringify(KVPairsArray, null, 2))
 })
 
 

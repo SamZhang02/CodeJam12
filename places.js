@@ -18,8 +18,7 @@ const getRestStops = async (intervalPoint) => {
     let restStops = []
     for (let i = 0; i < places.length; i++) {
         const place = places[i]
-        console.log(place.name)
-        restStops.push([place.geometry.location.lat, place.geometry.location.lng])
+        restStops.push(place.id)
     return restStops 
     }
 }

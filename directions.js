@@ -6,6 +6,12 @@ dotenv.config()
 
 const MAPS_API_KEY = process.env.MAPS_API_KEY;
 
+const getDirections = async (origin, destination) => {
+    const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${MAPS_API_KEY}`
+    const response = await axios.get(url)
+    return Number.parseFloat(response.data.routes[0].legs[0].distance.text)
+}
+
 // Get JSON data from Google Maps API and return steps
 const getSteps = async (origin, destination) => {
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${MAPS_API_KEY}`

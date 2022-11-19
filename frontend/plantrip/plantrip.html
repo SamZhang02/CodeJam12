@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trip Planner</title>
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="../map/map.css">
+    <script type="text/javascript" src="../map/map.js"></script>
   <link rel="stylesheet" href="./plantrip.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -34,11 +37,19 @@
                 </tr>
               </table>
             </div>
+            <div  class="col-span-6 sm:col-span-6">
+              <div id="map"></div>
+          </div>
+              <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRKeKRPNv6DRIn4-_xfPtpJUrgz9Hvt8&callback=initMap"
+                defer
+              ></script>
           </div>
         </div>
     </div>
   </div>
     </div>
+    
   </div>
   
 </body>

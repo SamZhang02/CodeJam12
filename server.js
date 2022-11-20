@@ -32,7 +32,12 @@ function queryStringToJSON(qs) {
 };
 
 const getAddress = (country,street,city,region,zip) => {
-  return `${street} ${city} ${region} ${zip} ${country}`
+  const formattedStreet= street.split('%2B').join(' ')
+  const formattedCity = city.split('%2B').join(' ')
+  const formattedRegion = region.split('%2B').join(' ')
+  const formattedCountry = country.split('%2B').join(' ')
+  const formattedZip = zip.split('%2B').join(' ')
+  return `${formattedStreet} ${formattedCity} ${formattedRegion} ${formattedCountry} ${formattedZip}`
 }
 
 app.use(express.static('.'))
@@ -42,9 +47,9 @@ app.use(cors())
 app.get ('/json', async (req, res) => {
   const qstring = querystring.decode(req._parsedUrl.query);
   console.log(qstring)
-  const origin = getAddress(qstring.org-country,qstring.org-street-address,qstring.org-city,qstring.org-region,qstring.org-postal-code)
-  console.log(origin)
-  const json = JSON.stringify(await main('Montreal, QC', 'Toronto, ON'))
+  const origin = getAddress(qstring.orgCountry,qstring.orgStreetAddress,qstring.orgCity,qstring.orgRegion,qstring.orgPostalCode)
+  const destination= getAddress(qstring.dstCountry,qstring.dstStreetAddress,qstring.dstCity,qstring.dstRegion,qstring.dstPostalCode)
+  const json = JSON.stringify(await main(origin, destination))
   res.setHeader('Content-Type', 'application/json');
   res.send(json)
 })

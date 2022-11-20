@@ -36,6 +36,7 @@ const decodePlaces = async (places) => {
     let json = {}
     for (let i = 0; i < places.length; i++) {
         const place = places[i] 
+        if (!place){continue} 
         const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place}&fields=name,formatted_address,url,place_id,geometry&key=${MAPS_API_KEY}`
         const response = await axios.get(url)
         json[response.data.result.name] = response.data.result

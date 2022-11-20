@@ -10,3 +10,5 @@ const main = async (origin,destination) => {
 export{
     main,
 }
+
+// console.log(await main('3660 rue de loreto brossard j4y3g3', 'quebec city canada'))

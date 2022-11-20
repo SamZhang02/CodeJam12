@@ -111,7 +111,7 @@ const getNbOfStops = (hours_slept_last12h, totalTripHours) => {
     }
 }
 const getAllIntervalPoints = async (origin, destination) => {
-    const steps = await getSteps('Montreal', 'Toronto')
+    const steps = await getSteps(origin, destination)
     const stepsArray = getStepsArray(steps)
     const intervalPoints = getIntervalPoints(stepsArray, 50)
     return intervalPoints

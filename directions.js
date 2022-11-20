@@ -13,6 +13,13 @@ const getDirections = async (origin, destination) => {
     return Number.parseFloat(response.data.routes[0].legs[0].distance.text)
 }
 
+const getDuration = async(origin, destination) => {
+    const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${MAPS_API_KEY}`
+    const response = await axios.get(url)
+    return Number.parseFloat(response.data.routes[0].legs[0].duration.text)
+}
+
+
 // Get JSON data from Google Maps API and return steps
 const getSteps = async (origin, destination) => {
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${MAPS_API_KEY}`
@@ -118,26 +125,23 @@ const getAllIntervalPoints = async (origin, destination) => {
     }
 
 
-const getStopInvertal = (hours_slept_last12h) => {
+const getStopInterval = (hours_slept_last12h) => {
     //Will need to merge and the date form DatePicker to minutes and make small modifications to the formula below
     if (hours_slept_last12h >=0 && hours_slept_last12h < 3) {
-        return 1.5
+        return 1.5 
     }
     else if (hours_slept_last12h >=3 && hours_slept_last12h < 6) {
-        return 2 
-    }
-    else if (hours_slept_last12h >=6 && hours_slept_last12h < 9) {
         return 2.5 
     }
-    else if (hours_slept_last12h >=9 && hours_slept_last12h <= 12) {
+    else if (hours_slept_last12h >=6 && hours_slept_last12h < 9) {
         return 3 
+    }
+    else if (hours_slept_last12h >=9 && hours_slept_last12h <= 12) {
+        return 3.5 
     }
     return;
 }
 
-getNbOfStops(13,10);
-getNbOfStops(4,10);
-getNbOfStops(2,10);
 // Given an end time, a trip's duration without break and the interval where the user should stop, return the total time of the trip given that each stop lasts 30 minutes
 const findStartTime = (endTime, tripDuration, stopIntervalTime) => {
     const numOfStops = Math.floor(tripDuration / stopIntervalTime)
@@ -149,23 +153,35 @@ const findStartTime = (endTime, tripDuration, stopIntervalTime) => {
 const findStops = (tripTime, stopIntervalTime) => {
     let stops = []
     for (let i = 0; i < tripTime; i += stopIntervalTime) {
-       stops.push(i) 
-    }
-    return stops
-
-}
-
-const findAllStops = (startTime, endTime, stopIntervalTime) => {
-    let stops = []
-    for (let time = startTime; time < endTime; time += stopIntervalTime) {
-        if (!(time === startTime || time === endTime)) {
-           stops.push(time)
+        if (i > 0) {
+            stops.push(i)
         }
     }
     return stops
 }
+
+const findAllStops = (stops, startTime) => {
+    let restStops = []
+    for (let i = 0; i < stops.length; i++) {
+        restStops.push(startTime + stops[i])
+    }
+    return restStops
+}
+
+const getStops = (endTime, tripDuration, hours_slept_last12h) => {
+    const stopIntervalTime = getStopInterval(hours_slept_last12h)
+    const startTime = findStartTime(endTime, tripDuration, stopIntervalTime)
+    let restStops = findStops(tripDuration, stopIntervalTime)
+    restStops = findAllStops(restStops, startTime)
+    return restStops
+}
+
 export{
     getDirections,
     findAllStops,
     getAllIntervalPoints,
+    getStops,
+    getDuration,
+    getStopInterval,
+    findStops,
 }

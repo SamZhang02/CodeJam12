@@ -15,20 +15,20 @@
   <div id="container" class="flex h-screen">
 
     <form id="input-container" method="get" action="../plantrip/plantrip.html"> 
-      <input type="hidden" id="org-country" name="dst-country" value="">
-      <input type="hidden" id="org-street-address" name="org-street-address" value="">
-      <input type="hidden" id="org-city" name="org-city" value="">
-      <input type="hidden" id="org-region" name="org-region" value="">
-      <input type="hidden" id="org-postal-code" name="org-postal-code" value="">
-      <input type="hidden" id="dst-country" name="dst-country" value="">
-      <input type="hidden" id="dst-street-address" name="dst-street-address" value="">
-      <input type="hidden" id="dst-city" name="dst-city" value="">
-      <input type="hidden" id="dst-region" name="dst-region" value="">
-      <input type="hidden" id="dst-postal-code" name="dst-postal-code" value="">
+      <input type="hidden" id="orgCountry" name="dstCountry" value="">
+      <input type="hidden" id="orgStreetAddress" name="orgStreetAddress" value="">
+      <input type="hidden" id="orgCity" name="orgCity" value="">
+      <input type="hidden" id="orgRegion" name="orgRegion" value="">
+      <input type="hidden" id="orgPostalCode" name="orgPostalCode" value="">
+      <input type="hidden" id="dstCountry" name="dstCountry" value="">
+      <input type="hidden" id="dstStreetAddress" name="dstStreetAddress" value="">
+      <input type="hidden" id="dstCity" name="dstCity" value="">
+      <input type="hidden" id="dstRegion" name="dstRegion" value="">
+      <input type="hidden" id="dstPostalCode" name="dstPostalCode" value="">
       <input type="hidden" id="date" name="date" value="">
       <input type="hidden" id="time" name="time" value="">
-      <label for="hours-slept" class="text-center text-2xl font-medium">How much time did you sleep in the past 12 hours? </label>
-      <input id="hours-slept" name="hours" type="number" min='0' max='12' class="block w-full mt-10 p-2 text-black border border-orange-500 rounded-xl sm:text-4xl focus:ring-orange-500 focus:border-orange-500 border-transparent focus:outline-none" required>
+      <label for="hoursSlept" class="text-center text-2xl font-medium">How much time did you sleep in the past 12 hours? </label>
+      <input id="hoursSlept" name="hours" type="number" min='0' max='12' class="block w-full mt-10 p-2 text-black border border-orange-500 rounded-xl sm:text-4xl focus:ring-orange-500 focus:border-orange-500 border-transparent focus:outline-none" required>
       <datalist id="hours">
         <option value="0"></option>
         <option value="1"></option>
@@ -44,7 +44,7 @@
         <option value="11"></option>
         <option value="12"></option>
       </datalist>
-      <button id="sleep-submit" type="submit" required class="appearance-none rounded-none rounded border">Submit</button>
+      <button id="sleepSubmit" type="submit" required class="appearance-none rounded-none rounded border">Submit</button>
     </form>
   </div>
   

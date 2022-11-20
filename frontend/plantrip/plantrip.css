@@ -28,6 +28,14 @@ td, th {
   color: #4a5568;
 }
 
+td a{
+  transition: 0.3s;
+}
+td a:hover{
+  color: #f8d99afd;
+
+}
+
 
 #colo2{
   display: flex;

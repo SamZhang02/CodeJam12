@@ -21,11 +21,14 @@ const getAllSuggestedRestStops = async (origin, destination,endTime,hoursSlept) 
     const timeArray = findStops(totalDuration,getStopInterval(hoursSlept)) 
     let points = checkForLocationAfterTime(timeArray, totalDuration, stepsArray)
 
+
+    let closestStops = []
     for (let i = 0; i < points.length; i++) {
-        console.log(await getClosestRestStop(restStops, points[i]))
+        closestStops.push(await getClosestRestStop(restStops, points[i]))
     }
+    return closestStops
 }
-getAllSuggestedRestStops('Montreal','Toronto',12,8)
+console.log(await getAllSuggestedRestStops('Montreal','New York City',12,1))
 
 export{
     main,

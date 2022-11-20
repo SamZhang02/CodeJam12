@@ -177,6 +177,7 @@ function initMap(){
     var flightPlanCoordinates = [];
     let array1 = [];
     var markers = [];
+    var markers1 = [];
 
 
     let arr4 = [];
@@ -194,15 +195,24 @@ function initMap(){
           arr4.forEach((element2,idx)=>{
             console.log(element2);
               const obj = {}
-              obj['lat'] = element2[0]
-              obj['lng'] = element2[1]
+              obj[1] = element2[0],
+              obj[2] = element2[1]
               vari = {...vari, [idx]:obj};
           })
           
     })
-
+    Object.entries(vari).forEach((element)=>{
+        let s1 = parseFloat(element[1][1]);
+        let s2 = parseFloat(element[1][2]);
+        console.log(s1);
+        console.log(s2);
+        let gp = {coords: {lat: s1, lng: s2}};
+        console.log(gp);
+        markers1.push(gp);
+        
+    });
     
-  console.log(vari['obj']);
+//   console.log(Object.entries(vari));
   
 
     Object.entries(array).forEach((c)=>{
@@ -211,7 +221,6 @@ function initMap(){
         let lati = c[1][1]['geometry']['location']['lat'];
         let lnge = c[1][1]['geometry']['location']['lng'];
         let url = c[1][1]['url'];
-
         let grouped = {coords: {lat: lati, lng: lnge}, content: `<h1>${title}</h1></br><h2>${address}</h2></br><h2><a href=${url}>${url}<a></h2>`};
         array1.push([title, address, lati, lnge, url]);
         markers.push(grouped);
@@ -236,9 +245,10 @@ function initMap(){
       
   
   // Loop through markers
-  for(var i = 0;i < markers.length;i++){
+  for(var i = 0;i < markers1.length;i++){
   // Add marker
-  addMarker(markers[i]);
+  addMarker(markers1[i]);
+  
   }
   
   // Add Marker Function

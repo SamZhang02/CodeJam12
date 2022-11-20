@@ -28,7 +28,6 @@ const getAllSuggestedRestStops = async (origin, destination,endTime,hoursSlept) 
     }
     return closestStops
 }
-await getAllSuggestedRestStops('Montreal','New York City',12,1)
 
 export{
     main,

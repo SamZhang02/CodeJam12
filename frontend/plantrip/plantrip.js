@@ -13,7 +13,6 @@ for (let i = 0; i < elems.length; i++) {
     dataObj[key] = value;
 }
 
-
 const JSONtoURL = (obj) => {
     var queryString = Object.keys(obj).map(key => key + '=' + encodeURIComponent(obj[key])).join('&');
     return queryString
@@ -30,7 +29,7 @@ xmlHttp.onload = function(e){
     if(this.status == 200){
         const json = JSON.parse(e.target.responseText);
         console.log(json);
-       Object.entries(json).forEach((e2)=>{
+        Object.entries(json).forEach((e2)=>{
         array.push(e2);
        })
     }
@@ -110,4 +109,102 @@ function initMap(){
   });
   
   flightPath.setMap(map);
-  }
+}
+
+
+xmlHttp.send( null );
+const json = JSON.parse(xmlHttp.responseText)
+console.log(json)
+
+
+const objectsArray = Object.values(json)
+
+const potentialStops = [];
+
+const stopTimes = []
+
+const startAndEndTimes = []
+
+objectsArray.forEach(object => {
+    if(Object.hasOwn(object, 'formatted_address')) {
+        potentialStops.push(object)
+    } else if (Array.isArray(object)){
+        stopTimes.push(object)
+    } else {
+        startAndEndTimes.push(object)
+    }
+})
+
+console.log(potentialStops, stopTimes, startAndEndTimes)
+
+const Stops = [];
+
+const startTime = startAndEndTimes[1];
+
+for (let i=0; i<stopTimes.length; i++) {
+    const Stop = {}
+    Stop.name = potentialStops[i].name;
+    Stop.url = potentialStops[i].url;
+    Stop.time = formatTime(startTime, stopTimes[i])
+    Stops.push(Stop)
+}
+
+console.log(Stops)
+
+function formatTime(start, scheduleStop) {
+
+    console.log(start, scheduleStop)
+
+    let updatedMinutes
+
+    let timeOfStop = Number(start) + Number(scheduleStop)
+
+    console.log(timeOfStop)
+
+    const decimals = (timeOfStop - Math.floor(timeOfStop));
+
+    console.log(decimals)
+
+    timeOfStop = timeOfStop - decimals
+
+    console.log(timeOfStop)
+    
+    const minutes = decimals * 60;
+
+    console.log(minutes)
+
+    if(minutes >= 60) {
+        updatedMinutes = String(minutes % 60)
+        const carryOver = (minutes - updatedMinutes) / 60
+        timeOfStop = timeOfStop + carryOver
+        console.log(timeOfStop)
+    } else {
+        updatedMinutes = String(minutes)
+    }
+
+    if(timeOfStop > 24) {
+        timeOfStop = timeOfStop % 24
+        console.log(timeOfStop)
+
+    }
+    const displayTime = (String(timeOfStop)).padStart(2, '0') + ':' + updatedMinutes.padStart(2, '0')
+
+    return displayTime
+}
+
+const planTable = document.getElementById('plan-container');
+
+for(let i=0; i<Stops.length; i++) {
+    addStop(Stops[i].time, Stops[i].name, Stops[i].url)
+}
+
+function addStop(time, stop, url) {
+
+  const stopListing = planTable.insertRow()
+
+  const timeOfStop = stopListing.insertCell(0);
+  const Stop = stopListing.insertCell(1);
+
+  timeOfStop.innerHTML = `${time}`;
+  Stop.innerHTML = `<a href="${url}">${stop}</a>`
+}

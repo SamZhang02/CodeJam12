@@ -1,11 +1,22 @@
-const sleepForm = document.getElementById('input-container');
 
-const sleepInput = document.getElementById('hours-slept');
+function getCurrentURL(){
+    return window.location.href;
+}
 
-sleepForm.addEventListener('submit', () => {
-  event.preventDefault();
-  const sleepData = {}
-  sleepData.hours = sleepInput.value
+const url = getCurrentURL();
 
-  console.log(sleepData)
-})
+const queryString = url.split('?')[1];
+const elems = queryString.split('&');
+json = {}
+for (let i = 0; i < elems.length; i++) {
+    const key = elems[i].split('=')[0];
+    const value = elems[i].split('=')[1];
+    json[key] = value;
+}
+
+for (let key in json) {
+  console.log(key) 
+  document.getElementById(key).value = json[key];
+}
+
+console.log(json)

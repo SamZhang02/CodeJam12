@@ -28,10 +28,11 @@ const getAllSuggestedRestStops = async (origin, destination,endTime,hoursSlept) 
     }
     return closestStops
 }
-console.log(await getAllSuggestedRestStops('Montreal','New York City',12,1))
+await getAllSuggestedRestStops('Montreal','New York City',12,1)
 
 export{
     main,
+    getAllSuggestedRestStops,
 }
 
 

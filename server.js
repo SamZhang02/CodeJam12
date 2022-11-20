@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express();
 const PORT = 8000;
 const querystring = require('querystring');
-import {main} from './main.js'
+import {main,getAllSuggestedRestStops} from './main.js'
 import {getDirections,
   getStops,
   getDuration,
@@ -77,7 +77,7 @@ app.get ('/json', async (req, res) => {
   json['stops'] = stops
   json['endTime'] = endTime
   json['startTime'] = ((endTime - tripDuration - stops.length * 0.5) % 24 + 24) % 24
-  console.log(endTime, tripDuration)
+  json['suggestedStops'] = await getAllSuggestedRestStops(origin, destination, endTime, hoursSlept)
   json = JSON.stringify(json) 
   res.setHeader('Content-Type', 'application/json');
   res.send(json)

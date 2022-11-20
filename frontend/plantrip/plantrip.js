@@ -24,14 +24,25 @@ var xmlHttp = new XMLHttpRequest();
 xmlHttp.open( "GET", `http://127.0.0.1:8000/json?${query}`, false); // false for synchronous request
 
 let array = [];
-
+let num = []
 xmlHttp.onload = function(e){
     if(this.status == 200){
         const json = JSON.parse(e.target.responseText);
-        console.log(json);
-        Object.entries(json).forEach((e2)=>{
-        array.push(e2);
-       })
+
+        var n = Object.keys(json);
+        var m = Object.entries(json);
+        console.log(n);
+        console.log(m);
+
+        n.forEach((e2)=>{
+            if(e2 != "endTime" && e2 != "startTime" && e2 != "stops"){
+                num.push(n.indexOf(e2));
+            }
+        })
+
+        for (let i=0; i<num.length; i++){
+            array.push(m[i]);
+        }
     }
 }
 
@@ -49,8 +60,10 @@ function initMap(){
     var flightPlanCoordinates = [];
     let array1 = [];
     var markers = [];
+    console.log(array);
     Object.entries(array).forEach((c)=>{
         let title = c[1][0];
+
         let address = c[1][1]['formatted_address'];
         let lati = c[1][1]['geometry']['location']['lat'];
         let lnge = c[1][1]['geometry']['location']['lng'];
@@ -60,6 +73,8 @@ function initMap(){
         array1.push([title, address, lati, lnge, url]);
         markers.push(grouped);
         flightPlanCoordinates.push({lat: lati, lng: lnge});
+        
+        
     })
     console.log(flightPlanCoordinates);
     console.log(markers);

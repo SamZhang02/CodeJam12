@@ -1,16 +1,14 @@
 const express = require('express');
 const app = express();
 const PORT = 8000;
+const querystring = require('querystring');
 
 app.use(express.static('.'))
 app.use(express.json())
 
-app.post('/', (req,res) => {
-  const {parcel} = req.body;
-  if (!parcel) {
-    return res.status(400).send({status: 'failed'});
-  }
-  res.status(200).send({status: 'received'})
+app.get ('/json', (req, res) => {
+  console.log(querystring.decode(req._parsedUrl.query));
+  res.send('hello world')
 })
 
 app.listen(PORT, () => {

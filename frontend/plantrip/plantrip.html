@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./map.css">
   <script src="./plantrip.js" defer></script>
-  <!-- <script type="text/javascript" src="../map/map.js"></script> -->
   <link rel="stylesheet" href="./plantrip.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -48,12 +47,7 @@
             </div>
             <div  class="col-span-6 sm:col-span-6">
               <div id="map"></div>
-          </div>
-              <script async
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRKeKRPNv6DRIn4-_xfPtpJUrgz9Hvt8&callback=initMap"
-                defer
-              ></script>
-          </div>
+
           <div class="bg-white-50 px-4 py-3 text-right sm:px-6">
             <a href="../trip_info/tripinfo.html">
             <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-orange-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">New Trip</button>
@@ -65,6 +59,11 @@
     </div>
     
   </div>
-  
+</div>
+
+</div> 
 </body>
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRKeKRPNv6DRIn4-_xfPtpJUrgz9Hvt8&callback=initMap"
+></script>
 </html>

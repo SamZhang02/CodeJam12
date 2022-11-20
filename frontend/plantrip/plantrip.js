@@ -214,7 +214,7 @@ function initMap(){
     
 //   console.log(Object.entries(vari));
   
-
+        console.log(array)
     Object.entries(array).forEach((c)=>{
         let title = c[1][0];
         let address = c[1][1]['formatted_address'];
@@ -224,17 +224,20 @@ function initMap(){
         let grouped = {coords: {lat: lati, lng: lnge}, content: `<h1>${title}</h1></br><h2>${address}</h2></br><h2><a href=${url}>${url}<a></h2>`};
         array1.push([title, address, lati, lnge, url]);
         markers.push(grouped);
-        flightPlanCoordinates.push({lat: lati, lng: lnge});
+        i = 0
+        let flightCoodinate = {lat: lati, lng: lnge}
+        if ( i === 0 || i === array1.length - 1  || arr4.includes(flightCoodinate)) {
+            i += 1
+            flightPlanCoordinates.push({lat: lati, lng: lnge});
+        }
     })
-    console.log(flightPlanCoordinates);
-    console.log(markers);
-    console.log(array1);
       var map = new google.maps.Map(document.getElementById('map'), {
           zoom:8,
-          center: { lat: 43.8951749, lng: -79.55772259999999 },
+          center: {lat: Number.parseFloat(arr4[1][0]), lng: Number.parseFloat(arr4[1][1])},
           disableDefaultUI: true
       });
 
+      console.log(flightPlanCoordinates)
       var flightPath = new google.maps.Polyline({
         path: flightPlanCoordinates,
         geodesic: true,
@@ -245,11 +248,15 @@ function initMap(){
       
   
   // Loop through markers
+  console.log(flightPlanCoordinates[0])
+  addMarker({coords: flightPlanCoordinates[0]});
   for(var i = 0;i < markers1.length;i++){
   // Add marker
-  addMarker(markers1[i]);
-  
+    console.log(markers1[i])
+    addMarker(markers1[i]);
   }
+  console.log(flightPlanCoordinates[1])
+  addMarker({coords: flightPlanCoordinates[1]});
   
   // Add Marker Function
   function addMarker(props){

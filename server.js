@@ -64,7 +64,6 @@ app.use(express.json())
 app.use(cors())
 
 app.get ('/json', async (req, res) => {
-<<<<<<< HEAD
   const qstring = querystring.decode(req._parsedUrl.query);
   const origin = getAddress(qstring.orgCountry,qstring.orgStreetAddress,qstring.orgCity,qstring.orgRegion,qstring.orgPostalCode)
   const destination= getAddress(qstring.dstCountry,qstring.dstStreetAddress,qstring.dstCity,qstring.dstRegion,qstring.dstPostalCode)
@@ -80,10 +79,6 @@ app.get ('/json', async (req, res) => {
   json['startTime'] = ((endTime - tripDuration - stops.length * 0.5) % 24 + 24) % 24
   console.log(endTime, tripDuration)
   json = JSON.stringify(json) 
-=======
-  // const qstring = querystring.decode(req._parsedUrl.query);
-  const json = JSON.stringify(await main('Montreal, QC', 'Toronto, ON'))
->>>>>>> abb37fe... Added polylines and stop point on the map
   res.setHeader('Content-Type', 'application/json');
   res.send(json)
 })

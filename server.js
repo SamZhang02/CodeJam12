@@ -31,6 +31,9 @@ function queryStringToJSON(qs) {
   return JSON.parse(JSON.stringify(result));
 };
 
+const getAddress = (country,street,city,region,zip) => {
+  return `${street} ${city} ${region} ${zip} ${country}`
+}
 
 app.use(express.static('.'))
 app.use(express.json())
@@ -38,6 +41,9 @@ app.use(cors())
 
 app.get ('/json', async (req, res) => {
   const qstring = querystring.decode(req._parsedUrl.query);
+  console.log(qstring)
+  const origin = getAddress(qstring.org-country,qstring.org-street-address,qstring.org-city,qstring.org-region,qstring.org-postal-code)
+  console.log(origin)
   const json = JSON.stringify(await main('Montreal, QC', 'Toronto, ON'))
   res.setHeader('Content-Type', 'application/json');
   res.send(json)

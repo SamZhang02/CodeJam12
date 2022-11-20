@@ -10,6 +10,7 @@ const MAPS_API_KEY = process.env.MAPS_API_KEY;
 const getDirections = async (origin, destination) => {
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${MAPS_API_KEY}`
     const response = await axios.get(url)
+    // console.log(response)
     return Number.parseFloat(response.data.routes[0].legs[0].distance.text)
 }
 
@@ -176,6 +177,50 @@ const getStops = (endTime, tripDuration, hours_slept_last12h) => {
     return restStops
 }
 
+const convertToMinutes = (time) => {
+    if (time.includes('hours')) {
+        time = parseInt(time.split('hours')[0]) * 60 + parseInt(time.split('hours')[1].split('min')[0])
+    }
+    else if (time.includes('hour')) {
+        times = parseInt(time.split('hour')[0]) * 60 + parseInt(time.split('hour')[1].split('min')[0])
+    }
+    else{
+        time = parseInt(time.split('min')[0])
+    }
+    return time 
+}
+
+
+const checkForLocationAfterTime = (timeArray, totalDuration, stepsArray) => {
+    let allPoints = []
+
+    for (let i = 0; i < stepsArray.length; i++) {
+        const polyPoints = getPointsFromPolyline(stepsArray[i][4])
+        allPoints = allPoints.concat(polyPoints)
+        allPoints.push(stepsArray[i][0])
+        }
+    let points = []
+    for (let i = 0; i < timeArray.length; i++) {
+        const ratio = timeArray[i] / totalDuration
+        points.push(allPoints[Math.floor(allPoints.length*ratio)].join(' '))
+        }
+    return points
+    }
+
+    
+const getClosestRestStop = async (stops, currentLocation) => {
+    let closestStop = stops[0]
+    let currMinDistance = await getDirections(currentLocation, closestStop)
+    for (let i = 0; i < stops.length; i++) {
+        const currDistance = await getDirections(stops[i], currentLocation)
+        if (currDistance < currMinDistance) {
+            currMinDistance = currDistance
+            closestStop = stops[i]
+        }
+    }
+    return closestStop
+}
+
 export{
     getDirections,
     findAllStops,
@@ -184,4 +229,9 @@ export{
     getDuration,
     getStopInterval,
     findStops,
+    getClosestRestStop,
+    checkForLocationAfterTime,
+    getStepsArray,
+    getSteps,
 }
+

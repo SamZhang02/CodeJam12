@@ -149,12 +149,12 @@ function formatTime(start, scheduleStop) {
 
 const planTable = document.getElementById('plan-container');
 
-addStop(formatTime(tripStartTime, 0), dataObj["orgCity"].replaceAll("%2B","") + " <strong>(DEPARTURE)</strong>", " ")
+addStop2(formatTime(tripStartTime, 0), dataObj["orgCity"].replaceAll("%2B","") + " <strong>(DEPARTURE)</strong>", " ")
 for(let i=0; i<Stops.length; i++) {
     addStop(Stops[i].time, Stops[i].name.replaceAll("%2B",""), Stops[i].url)
 }
 
-addStop(formatTime(tripEndTime, 0), dataObj["dstCity"].replaceAll("%2B","") + " <strong>(ARRIVAL)</strong>", " ")
+addStop2(formatTime(tripEndTime, 0), dataObj["dstCity"].replaceAll("%2B","") + " <strong>(ARRIVAL)</strong>", " ")
 
 function addStop(time, stop, url) {
 
@@ -164,8 +164,20 @@ function addStop(time, stop, url) {
   const Stop = stopListing.insertCell(1);
 
   timeOfStop.innerHTML = `${time}`;
+
   Stop.innerHTML = `<a href="${url}">${stop}</a>`
 }
+function addStop2(time, stop, url) {
+
+    const stopListing = planTable.insertRow()
+  
+    const timeOfStop = stopListing.insertCell(0);
+    const Stop = stopListing.insertCell(1);
+  
+    timeOfStop.innerHTML = `${time}`;
+  
+    Stop.innerHTML = `<a>${stop}</a>`
+  }
 
 
 function initMap(){

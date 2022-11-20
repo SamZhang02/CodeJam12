@@ -29,7 +29,7 @@
             <div class="bg-white px-4 py-5 sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-5">
-                    <label class="block text-lg font-bold text-gray-700">Origin Address</label>
+                    <label class="block text-lg font-bold text-gray-700">Departure Address</label>
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
@@ -37,7 +37,6 @@
                   <select id="orgCountry" name="orgCountry" autocomplete="countryName" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm required-input">
                     <option>Canada</option>
                     <option>United States</option>
-                    <option>Mexico</option>
                   </select>
                 </div>
   
@@ -70,7 +69,6 @@
               <select id="dstCountry" name="dstCountry" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm required-input">
                 <option>Canada</option>
                 <option>United States</option>
-                <option>Mexico</option>
               </select>
             </div>
 
@@ -96,28 +94,14 @@
             </div>
 
             <div class="mt-10 col-span-6 sm:col-span-5">
-                <label class="block text-lg font-bold text-gray-700">Preferred Arrival Day & Time</label>
-            </div>
-
-            <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
-              <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-             </div>
-              <input datepicker type="text" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-300 focus:border-orange-200 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-200 dark:focus:border-orange-200" placeholder="Select date">
-            </div>
+                <label class="block text-lg font-bold text-gray-700">Preferred Time of Arrival</label>
 
             <div class="timepicker relative form-floating mb-3 xl:w-96 col-span-6 sm:col-span-3" data-mdb-with-icon="false" id="input-toggle-timepicker ">
                 <input type="text" id="time" name="time"
                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-300 focus:outline-none required-input"
                 placeholder="Select a date" data-mdb-toggle="input-toggle-timepicker" />
                 <label for="floatingInput" class="text-gray-700">Select a time</label>
-                
             </div>
-
-
-
-
-            
             <div class="bg-white-50 px-4 py-3 text-right sm:px-6">
               <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-orange-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Continue</button>
             </div>

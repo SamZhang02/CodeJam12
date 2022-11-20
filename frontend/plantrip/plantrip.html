@@ -28,16 +28,23 @@
                 <label class="block text-md font-bold text-gray-700">Based on the information we received, we recommend you take this following route:</label>
             </div>
             <div class="col-span-6 sm:col-span-6">
-              <table id="plan-container" class="table-auto border-separate overflow-hidden shadow sm:rounded-md">
-                <tr>
-                  <th >Schedule</th>
-                  <th >Suggested Stop To Make</th>
+              <div class="overflow-x-auto relative shadow-lg">
+                <table class="w-full text-sm text-left text-gray-500 border-gray-200 dark:text-gray-400" id="plan-container">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6 text-center">
+                              Schedule
+                            </th>
+                            <th scope="col" class="py-3 px-6t text-center">
+                                Location
+                            </th>
                 </tr>
-                <tr>
+                <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
                   
 
                 </tr>
               </table>
+            </div>
             </div>
             <div  class="col-span-6 sm:col-span-6">
               <div id="map"></div>

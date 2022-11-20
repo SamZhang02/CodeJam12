@@ -18,7 +18,7 @@ const getRestStops = async (intervalPoint) => {
     let restStops = []
     for (let i = 0; i < places.length; i++) {
         const place = places[i]
-        restStops.push(place.id)
+        restStops.push(place.place_id)
     return restStops 
     }
 }
@@ -32,6 +32,20 @@ const getAllRestStops = async (intervalPointsArray) => {
     return restStops
 }
 
+const decodePlaces = async (places) => {
+    let json = {}
+    for (let i = 0; i < places.length; i++) {
+        const place = places[i] 
+        const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place}&fields=name,formatted_address,url,place_id,geometry&key=${MAPS_API_KEY}`
+        const response = await axios.get(url)
+        json[response.data.result.name] = response.data.result
+    }
+    return json 
+}
+
+
+
 export{
     getAllRestStops,
+    decodePlaces,
 }

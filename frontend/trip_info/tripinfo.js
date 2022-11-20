@@ -28,10 +28,18 @@ tripInfo.addEventListener('submit', () => {
     }
   })
 
+const JSONtoURL = (obj) => {
+  var queryString = Object.keys(obj).map(key => key + '=' + encodeURIComponent(obj[key])).join('&');
+  return queryString
+}
   //console.log(dataObject)
+const query = JSONtoURL(dataObject)
 
-  console.log(JSON.stringify(dataObject, null, 2))
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", `http://127.0.0.1:8000/json?${query}`, false); // false for synchronous request
+xmlHttp.send( null );
+const json = JSON.parse(xmlHttp.responseText)
+console.log(json)
 })
-
 
 

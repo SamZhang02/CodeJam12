@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="./sleep.css">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <title>Sleep Info</title>
-  <script src="./sleep.js" defer></script>
+  <!-- <script src="./sleep.js" defer></script> -->
 </head>
 <body class="bg-orange-200">
 
   <div id="container" class="flex h-screen">
 
-    <form id="input-container">
+    <form id="input-container" method="get" action="../plantrip/plantrip.html"> 
       <label for="hours-slept" class="text-center text-2xl font-medium">How much time did you sleep in the past 12 hours? </label>
-      <input id="hours-slept" type="number" min='0' max='12'list="hours" class="block w-full mt-10 p-2 text-black border border-orange-500 rounded-xl sm:text-4xl focus:ring-orange-500 focus:border-orange-500 border-transparent focus:outline-none" required>
+      <input id="hours-slept" type="number" min='0' max='12' class="block w-full mt-10 p-2 text-black border border-orange-500 rounded-xl sm:text-4xl focus:ring-orange-500 focus:border-orange-500 border-transparent focus:outline-none" required>
       <datalist id="hours">
         <option value="0"></option>
         <option value="1"></option>

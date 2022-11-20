@@ -149,12 +149,12 @@ function formatTime(start, scheduleStop) {
 
 const planTable = document.getElementById('plan-container');
 
-addStop(formatTime(tripStartTime, 0), dataObj["orgCity"] + " <strong>(DEPARTURE)</strong>", " ")
+addStop(formatTime(tripStartTime, 0), dataObj["orgCity"].replaceAll("%2B","") + " <strong>(DEPARTURE)</strong>", " ")
 for(let i=0; i<Stops.length; i++) {
-    addStop(Stops[i].time, Stops[i].name, Stops[i].url)
+    addStop(Stops[i].time, Stops[i].name.replaceAll("%2B",""), Stops[i].url)
 }
 
-addStop(formatTime(tripEndTime, 0), dataObj["dstCity"] + " <strong>(ARRIVAL)</strong>", " ")
+addStop(formatTime(tripEndTime, 0), dataObj["dstCity"].replaceAll("%2B","") + " <strong>(ARRIVAL)</strong>", " ")
 
 function addStop(time, stop, url) {
 

@@ -33,4 +33,5 @@ Prerequesite: Google Maps API key
 5. Put your Google Maps API key in the URL in `<script>` section of `plantrip.html`
 6. Start the server by `node server.js`
 7. Open `login.html` and enjoy.
+
 Note: The login page is hard-coded, any username with `@` included will work

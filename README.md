@@ -24,7 +24,7 @@ Logistically, there was no readily availible APIs that can look for rest areas a
 ## What's next for DRooVE
 The most important step would be to implement DRooVE as a mobile app, allowing truck drivers to have easy access to the trip planner while on the go. (We lacked the technical knowledge to do so) Additionally, a database implementation in the future can enable users to have their own profiles to make using the planner a more personalized experience (history of past travels, sleeping habits/schedule, etc.). Finally, a rolling algorithm that stores user data and improves with the number of times of usage would be a great tool for truckers as well. 
 
-##Running the Project
+## Running the Project
 Prerequesite: Google Maps API key
 1. Clone the repo
 2. `npm i`

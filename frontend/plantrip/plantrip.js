@@ -233,7 +233,7 @@ function initMap(){
     })
       var map = new google.maps.Map(document.getElementById('map'), {
           zoom:8,
-          center: {lat: Number.parseFloat(arr4[1][0]), lng: Number.parseFloat(arr4[1][1])},
+          center: {lat: 45.5019 , lng: -73.5674},
           disableDefaultUI: true
       });
 
